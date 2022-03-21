@@ -1,3 +1,4 @@
+// Construcción Array Ofertas
 const ofertas = [];
 ofertas.push(new Producto(1, articulo[0], precio[0], seccion[0]));
 ofertas.push(new Producto(2, articulo[1], precio[1], seccion[0]));
@@ -15,6 +16,7 @@ ofertas.push(new Producto(13, articulo[12], precio[12], seccion[0]));
 ofertas.push(new Producto(14, articulo[13], precio[13], seccion[0]));
 ofertas.push(new Producto(15, articulo[14], precio[14], seccion[0]));
 
+// DOM Ofertas
 document.addEventListener("DOMContentLoaded", init);
 function init() {
     const galeria = document.querySelector(".main_ofertas");
@@ -31,12 +33,12 @@ function init() {
         );
         containerO.appendChild(btnO);
         btnO.addEventListener(`click`, function () {
-        carritoProductos.push(productoO.articulo);
-        carritoPrecio.push(productoO.precio);
-        carritoId.push(productoO.id)
-        localStorage.setItem(`compraOfertas`, JSON.stringify(carritoPrecio));
-        localStorage.setItem(`productos A Comprar`,JSON.stringify(carritoProductos));
-        localStorage.setItem(`compraIdOfertas`, JSON.stringify(carritoId));
+            carritoOProductos.push(productoO.articulo);
+            carritoOPrecio.push(productoO.precio);
+            carritoOId.push(productoO.id)
+        localStorage.setItem(`Compra Ofertas`, JSON.stringify(carritoOPrecio));
+        localStorage.setItem(`Productos Ofertas`,JSON.stringify(carritoOProductos));
+        localStorage.setItem(`Id Ofertas`, JSON.stringify(carritoOId));
         Toastify({
             text: "Producto Agregado Al Carrito!",
             style: {
@@ -51,4 +53,3 @@ function init() {
     }
     }
 }
-console.log();

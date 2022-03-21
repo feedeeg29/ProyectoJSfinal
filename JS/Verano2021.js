@@ -1,3 +1,4 @@
+// Construcción array Verano
 const verano = [];
 verano.push(new Producto(16, articulo[15], precio[15], seccion[1]));
 verano.push(new Producto(17, articulo[16], precio[16], seccion[1]));
@@ -15,6 +16,7 @@ verano.push(new Producto(28, articulo[27], precio[27], seccion[1]));
 verano.push(new Producto(29, articulo[28], precio[28], seccion[1]));
 verano.push(new Producto(30, articulo[29], precio[29], seccion[1]));
 
+// DOM Verano 2021
 document.addEventListener("DOMContentLoaded", veranO);
 function veranO() {
   const galeriaV = document.querySelector(".main_verano");
@@ -32,14 +34,12 @@ function veranO() {
       imageV.setAttribute("id", `${productoV.id}`);
       containerV.appendChild(btnV);
       btnV.addEventListener("click", function () {
-        carritoId.push(productoV.id);
-        carritoPrecio.push(productoV.precio);
-        carritoProductos.push(productoV.articulo);
-        localStorage.setItem(`compraVerano`, JSON.stringify(carritoPrecio));
-        localStorage.setItem(
-          `productos A Comprar`,
-          JSON.stringify(carritoProductos)
-        );
+        carritoVId.push(productoV.id);
+        carritoVPrecio.push(productoV.precio);
+        carritoVProductos.push(productoV.articulo);
+        localStorage.setItem(`Compra Verano`, JSON.stringify(carritoVPrecio));
+        localStorage.setItem(`Productos Verano`,JSON.stringify(carritoVProductos));
+        localStorage.setItem(`Id Verano`, JSON.stringify(carritoVId));
         Toastify({
           text: "Producto Agregado Al Carrito!",
           style: {

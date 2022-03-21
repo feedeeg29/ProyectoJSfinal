@@ -1,11 +1,23 @@
 let valorInicial = 0;
-const carritoPrecio = [];
-const carritoProductos = [];
-const carritoId = [];
-const enviosProvincias = document.getElementById('enviosProvincias');
+const confirmar= document.getElementById('confirmar');
+// Arrays Calzado para LocalStorage
+const carritoCPrecio = [];
+const carritoCProductos = [];
+const carritoCId = [];
+// Array Ofertas para LocalStorage
+const carritoOId = [];
+const carritoOPrecio = [];
+const carritoOProductos = [];
+// Array Verano para LocalStorage
+const carritoVId = [];
+const carritoVPrecio = [];
+const carritoVProductos =[];
+// API Envio
 const saldoCliente = 100000;
+const enviosProvincias = document.getElementById('enviosProvincias');
+// Funcion constructora para arrays de productos
 class Producto {
-  constructor(id, articulo, precio, seccion,cantidad) {
+  constructor(id, articulo, precio, seccion) {
     this.id = parseInt(id);
     this.articulo = articulo;
     this.precio = parseInt(precio);
@@ -14,6 +26,7 @@ class Producto {
 }
 
 const articulo = [];
+// Array articulos OFERTAS
 articulo.push("OFERTAUNO");
 articulo.push("OFERTADOS");
 articulo.push("OFERTATRES");
@@ -29,6 +42,7 @@ articulo.push("OFERTADOCE");
 articulo.push("OFERTATRECE");
 articulo.push("OFERTACATORCE");
 articulo.push("OFERTAQUINCE");
+// Array articulo Verano
 articulo.push("VERANOUNO");
 articulo.push("VERANODOS");
 articulo.push("VERANOTRES");
@@ -44,6 +58,7 @@ articulo.push("VERANODOCE");
 articulo.push("VERANOTRECE");
 articulo.push("VERANOCATORCE");
 articulo.push("VERANOQUINCE");
+// Array articulo Calzado
 articulo.push("CALZADOUNO");
 articulo.push("CALZADODOS");
 articulo.push("CALZADOTRES");
@@ -61,6 +76,7 @@ articulo.push("CALZADOCATORCE");
 articulo.push("CALZADOQUINCE");
 
 const precio = [];
+// Array Precio Ofertas
 precio.push(1500);
 precio.push(1000);
 precio.push(900);
@@ -75,7 +91,8 @@ precio.push(2200);
 precio.push(1750);
 precio.push(2000);
 precio.push(950);
-precio.push(1825); //Ofertas
+precio.push(1825);
+ //Array precio Verano
 precio.push(3250);
 precio.push(925);
 precio.push(2800);
@@ -90,7 +107,8 @@ precio.push(1650);
 precio.push(2920);
 precio.push(1950);
 precio.push(2300);
-precio.push(1900); //Verano2021
+precio.push(1900); 
+// Array precio Calzado
 precio.push(15000);
 precio.push(12500);
 precio.push(21000);
@@ -106,7 +124,7 @@ precio.push(15750);
 precio.push(29232);
 precio.push(16540);
 precio.push(15412);
-
+// Array Seccion
 const seccion = [];
 seccion.push("ofertas");
 seccion.push("verano2021");
