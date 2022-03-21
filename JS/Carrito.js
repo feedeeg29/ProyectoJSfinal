@@ -1,25 +1,25 @@
 // Arrays Carrito Verano
 const carritoFinalVId = JSON.parse(localStorage.getItem(`Id Verano`)) ?? [];
-console.log(carritoFinalVId.length);
+// console.log(carritoFinalVId.length);
 const carritoFinalVPrecios = JSON.parse(localStorage.getItem(`Compra Verano`)) ?? [];
-console.log(carritoFinalVPrecios.length);
+// console.log(carritoFinalVPrecios.length);
 const carritoFinalVProductos = JSON.parse(localStorage.getItem(`Productos Verano`)) ?? [];
-console.log(carritoFinalVProductos.length);
+// console.log(carritoFinalVProductos.length);
 
 // Arrays Carrito Calzado
 const carritoFinalCId = JSON.parse(localStorage.getItem(`Id Calzado`)) ?? [];
-console.log(carritoFinalCId.length);
+// console.log(carritoFinalCId.length);
 const carritoFinalCPrecios = JSON.parse(localStorage.getItem(`Compra Calzado`)) ?? [];
-console.log(carritoFinalCPrecios.length);
+// console.log(carritoFinalCPrecios.length);
 const carritoFinalCProductos = JSON.parse(localStorage.getItem(`Productos Calzado`)) ?? [];
 
 // Arrays Carrito Ofertas
 const carritoFinalOId = JSON.parse(localStorage.getItem(`Id Ofertas`)) ?? [];
-console.log(carritoFinalOId.length)
+// console.log(carritoFinalOId.length);
 const carritoFinalOPrecios = JSON.parse(localStorage.getItem(`Compra Ofertas`)) ?? [];
-console.log(carritoFinalOPrecios.length);
+// console.log(carritoFinalOPrecios.length);
 const carritoFinalOProductos = JSON.parse(localStorage.getItem(`Productos Ofertas`)) ?? [];
-console.log(carritoFinalOProductos.length);
+// console.log(carritoFinalOProductos.length);
 
 // Arrays Precios Concatenados
 const carritoCOPrecios = carritoFinalCPrecios.concat(carritoFinalOPrecios) ;
@@ -32,8 +32,8 @@ const carritoFinalProductos = carritoCOProductos.concat(carritoFinalVProductos);
 // Arrays Id Concatenados
 const carritoCOId = carritoFinalCId.concat(carritoFinalOId);
 const carritoFinalId = carritoCOId.concat(carritoFinalVId);
-
-
+// Array prueba
+const arrayPrueba = [];
 // Carousel 
 if (carritoFinalId.length === 0){
     document.addEventListener("DOMContentLoaded", initCarritoVacio);
@@ -46,7 +46,7 @@ if (carritoFinalId.length === 0){
         const imgActivoVacio = document.createElement("img")
         divActivoVacio.appendChild(imgActivoVacio);
         imgActivoVacio.setAttribute("class","d-block img-fluid mx-auto");
-        imgActivoVacio.setAttribute("src","./Imagenes/Carrito/Feliz.jpg");
+        imgActivoVacio.setAttribute("src","./Imagenes/Carrito/Carrito_Vacio.jpg");
         galeriaCarritoVacio.appendChild(innerCarritoVacio);
         innerCarritoVacio.setAttribute("class","carousel-inner")
         divActivoVacio.setAttribute("class","carousel-item active");
@@ -106,7 +106,7 @@ intencionEnvio(saldoCliente).then((mensaje) => {
     .then((respuesta) => {
         return respuesta.json()
     }).then((datos) => {
-        console.log(datos);
+        // console.log(datos);
 
         enviosProvincias.innerHTML = `<h3>Subtotal= ${subTotalCarritoo}</h3>
                                     <h4>Seleccione Zona de envío</h4>
