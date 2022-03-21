@@ -126,6 +126,7 @@ intencionEnvio(saldoCliente).then((mensaje) => {
             .then(datos => {
             console.log(datos);
             let munFiltro = document.getElementById('munFiltro');
+            munFiltro.innerHTML= "";
             for (const municipio of datos.municipios) {
                 munFiltro.innerHTML += `<option value="${municipio.id}">${municipio.nombre}</option>`;
             }
