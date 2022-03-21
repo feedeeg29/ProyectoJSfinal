@@ -33,10 +33,25 @@ const carritoFinalProductos = carritoCOProductos.concat(carritoFinalVProductos);
 const carritoCOId = carritoFinalCId.concat(carritoFinalOId);
 const carritoFinalId = carritoCOId.concat(carritoFinalVId);
 
-//Subtotal 
-const subtotal = (accumulator,curr) => accumulator + curr;
-console.log(carritoFinalPrecios.reduce(subtotal));
+
 // Carousel 
+if (carritoFinalId.length === 0){
+    document.addEventListener("DOMContentLoaded", initCarritoVacio);
+    function initCarritoVacio() {
+    const galeriaCarritoVacio = document.querySelector(".carousel_carrito");
+    if (galeriaCarritoVacio) {
+        galeriaCarritoVacio.innerHTML = "";
+        const innerCarritoVacio = document.createElement("div");
+        const divActivoVacio = document.createElement("div");
+        const imgActivoVacio = document.createElement("img")
+        divActivoVacio.appendChild(imgActivoVacio);
+        imgActivoVacio.setAttribute("class","d-block img-fluid mx-auto");
+        imgActivoVacio.setAttribute("src","./Imagenes/Carrito/Feliz.jpg");
+        galeriaCarritoVacio.appendChild(innerCarritoVacio);
+        innerCarritoVacio.setAttribute("class","carousel-inner")
+        divActivoVacio.setAttribute("class","carousel-item active");
+        innerCarritoVacio.appendChild(divActivoVacio);}
+}} else{
 document.addEventListener("DOMContentLoaded", initCarrito);
 function initCarrito() {
     const galeriaCarrito = document.querySelector(".carousel_carrito");
@@ -63,12 +78,14 @@ function initCarrito() {
         innerCarrito.appendChild(containerCarrito);
     }}}
 }
-
-
-
-
+}
+//Subtotal 
+if (carritoFinalPrecios.length !== 0){
+    const subtotal = (accumulator,curr) => accumulator + curr;
+    const subTotalCarritoo = JSON.stringify(localStorage.setItem(`SUBTOTAL`,carritoFinalPrecios.reduce(subtotal)));}
+    const subTotalCarritoo = JSON.parse(localStorage.getItem(`SUBTOTAL`)) ?? [];
+// Modal Subtotal+Envio
 const compraFinal = document.querySelector(".Compra_Final");
-const subTotalCarrito = document.querySelector(".subtotal_Carrito")
 function carritoHTML(lista) {
     compraFinal.innerHTML = "";
     for (const producto of lista) {
@@ -90,7 +107,8 @@ intencionEnvio(saldoCliente).then((mensaje) => {
         return respuesta.json()
     }).then((datos) => {
         console.log(datos);
-        enviosProvincias.innerHTML = `<h3>Subtotal= ${carritoFinalPrecios.reduce(subtotal)}</h3>
+
+        enviosProvincias.innerHTML = `<h3>Subtotal= ${subTotalCarritoo}</h3>
                                     <h4>Seleccione Zona de envío</h4>
                                     <select id="provFiltro"></select> 
                                     <select id="munFiltro"></select>
