@@ -73,7 +73,8 @@ function initCarrito() {
 //Subtotal 
 if (carritoFinalPrecios.length !== 0){
     const subtotal = (accumulator,curr) => accumulator + curr;
-    const subTotalCarritoo = JSON.stringify(localStorage.setItem(`SUBTOTAL`,carritoFinalPrecios.reduce(subtotal)));}
+    const subTotalCarritoo = JSON.stringify(localStorage.setItem(`SUBTOTAL`,carritoFinalPrecios.reduce(subtotal)));
+    }
     const subTotalCarritoo = JSON.parse(localStorage.getItem(`SUBTOTAL`)) ?? [];
 // Modal Subtotal+Envio
 const compraFinal = document.querySelector(".Compra_Final");
@@ -98,7 +99,7 @@ intencionEnvio(saldoCliente).then((mensaje) => {
         return respuesta.json()
     }).then((datos) => {
         // console.log(datos);
-
+    
         enviosProvincias.innerHTML = `<h3>Subtotal= ${subTotalCarritoo}</h3>
                                     <h4>Seleccione Zona de envío</h4>
                                     <select id="provFiltro"></select> 

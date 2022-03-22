@@ -121,6 +121,13 @@ html {
       border: 3px solid black;
       border-radius: 30px; } }
 
+.descripcion1 {
+  color: #87AAAA; }
+  .descripcion1 .descripcion2 {
+    color: #87AAAA; }
+    .descripcion1 .descripcion2 .descripcion3 {
+      color: #87AAAA; }
+
 @media screen and (min-width: 992px) {
   #header {
     display: flex;
@@ -236,6 +243,15 @@ html {
     .main_galeria div {
       display: flex;
       flex-direction: column; }
+      .main_galeria div .descripcion1 {
+        border: 1px solid #87AAAA;
+        color: #87AAAA; }
+      .main_galeria div .descripcion2 {
+        border: 1px solid #87AAAA;
+        color: #87AAAA; }
+      .main_galeria div .descripcion3 {
+        border: 1px solid #87AAAA;
+        color: #87AAAA; }
       .main_galeria div img {
         max-height: 100%;
         max-width: 300px;

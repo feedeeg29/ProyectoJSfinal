@@ -62,6 +62,9 @@ function calzad0() {
         descripcionCalzado1.innerHTML = `articulo ${productoCalzado.articulo}`;
         descripcionCalzado2.innerHTML = `Precio ${productoCalzado.precio}`;
         descripcionCalzado3.innerHTML = `Talle Unico`;
+        descripcionCalzado1.setAttribute("class","descripcion1");
+        descripcionCalzado2.setAttribute("class","descripcion2");
+        descripcionCalzado3.setAttribute("class","descripcion3");
         }
     }
     }

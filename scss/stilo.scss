@@ -119,6 +119,13 @@
         max-width:  500px;
         border: 3px solid black;
         border-radius: 30px;}}}
+        .descripcion1{
+            color: #87AAAA;
+        .descripcion2{
+            color: #87AAAA;
+        .descripcion3{
+            color: #87AAAA;
+        }}}
 // General Desktop
 @media  screen and (min-width: 992px) {
     #header{
@@ -225,6 +232,15 @@ textarea{
         div{
             display: flex;
             flex-direction: column;
+            .descripcion1{
+                border: 1px solid #87AAAA;
+                color: #87AAAA;}
+            .descripcion2{
+                border: 1px solid #87AAAA;
+                color: #87AAAA;}
+            .descripcion3{
+                border: 1px solid #87AAAA;
+                color: #87AAAA;}
             img {
                 max-height: 100%;
                 max-width: 300px;
@@ -237,7 +253,7 @@ textarea{
                 justify-self: bottom;
                 background-image: linear-gradient(#C8E3D4, #87AAAA);
                 font-size: 30px;
-            }}}
+}}}
 
 #main{
     min-height: 78vh;
