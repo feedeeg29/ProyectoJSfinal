@@ -1,29 +1,4 @@
-// Arrays Carrito Verano
-const carritoFinalVeranoId = JSON.parse(localStorage.getItem(`Id Verano`)) ?? [];
-const carritoFinalVeranoPrecios = JSON.parse(localStorage.getItem(`Compra Verano`)) ?? [];
-const carritoFinalVeranoProductos = JSON.parse(localStorage.getItem(`Productos Verano`)) ?? [];
 
-// Arrays Carrito Calzado
-const carritoFinalCalzadoId = JSON.parse(localStorage.getItem(`Id Calzado`)) ?? [];
-const carritoFinalCalzadoPrecios = JSON.parse(localStorage.getItem(`Compra Calzado`)) ?? [];
-const carritoFinalCalzadoProductos = JSON.parse(localStorage.getItem(`Productos Calzado`)) ?? [];
-
-// Arrays Carrito Ofertas
-const carritoFinalOfertasId = JSON.parse(localStorage.getItem(`Id Ofertas`)) ?? [];
-const carritoFinalOfertasPrecios = JSON.parse(localStorage.getItem(`Compra Ofertas`)) ?? [];
-const carritoFinalOfertasProductos = JSON.parse(localStorage.getItem(`Productos Ofertas`)) ?? [];
-
-// Arrays Precios Concatenados
-const carritoCOPrecios = carritoFinalCalzadoPrecios.concat(carritoFinalOfertasPrecios) ;
-const carritoFinalPrecios = carritoCOPrecios.concat(carritoFinalVeranoPrecios);
-
-// Arrays Productos Concatenados
-const carritoCOProductos = carritoFinalCalzadoProductos.concat(carritoFinalOfertasProductos);
-const carritoFinalProductos = carritoCOProductos.concat(carritoFinalVeranoProductos);
-
-// Arrays Id Concatenados
-const carritoCOId = carritoFinalCalzadoId.concat(carritoFinalOfertasId);
-const carritoFinalId = carritoCOId.concat(carritoFinalVeranoId);
 
 // Carousel 
 if (carritoFinalId.length === 0){
@@ -78,17 +53,16 @@ if (carritoFinalPrecios.length !== 0){
     const subTotalCarritoo = JSON.parse(localStorage.getItem(`SUBTOTAL`)) ?? [];
 // Modal Subtotal+Envio
 const compraFinal = document.querySelector(".Compra_Final");
-function carritoHTML(lista) {
+/*function carritoHTML(lista) {
     compraFinal.innerHTML = "";
     for (const producto of lista) {
             let prod = document.createElement('div');
             prod.innerHTML = `${producto.nombre} 
             <span class="badge bg-warning text-dark">Precio: $ ${this.carritoFinalPrecios}</span>
-            <span class="badge bg-primary">Cantidad: ${producto.cantidad}</span>
             <span class="badge bg-dark">Subtotal: $${producto.subTotal()}</span>`;
             compraFinal.appendChild(prod);
     }
-}
+}*/
 // API envios
 intencionEnvio(saldoCliente).then((mensaje) => {
     enviosProvincias.innerHTML = ` <div class="spinner-border text-primary" role="status">
@@ -149,3 +123,10 @@ intencionEnvio(saldoCliente).then((mensaje) => {
     .catch((mensaje) => { console.log(mensaje) })  
     }).catch((mensaje) => {alertaEstado(mensaje, "error")}
     )
+
+btnVaciarCarrito.addEventListener("click", function () {
+        carritoFinalPrecios.splice(0, 1000000000);
+        carritoFinalProductos.splice(0, 1000000000);
+        carritoFinalId.splice(0, 1000000000);
+        localStorage.clear();
+});

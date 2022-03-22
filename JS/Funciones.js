@@ -8,3 +8,8 @@
                 }
         })
         }
+// Funcion Vaciar Carrito
+const vaciarCarrito = document.querySelector(".Vaciar_Carrito")
+const btnVaciarCarrito = document.createElement("button");
+btnVaciarCarrito.innerHTML = "Vaciar Carrito";
+vaciarCarrito.appendChild(btnVaciarCarrito);

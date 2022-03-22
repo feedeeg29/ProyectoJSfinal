@@ -126,6 +126,9 @@
         .descripcion3{
             color: #87AAAA;
         }}}
+    .Vaciar_Carrito{
+        background-image: linear-gradient(to right, red, black);
+    }
 // General Desktop
 @media  screen and (min-width: 992px) {
     #header{
@@ -291,6 +294,7 @@ textarea{
     max-width: 100%;
     border: 3px solid #000000;
     border-radius: 30px;}}}}
+
 // Moto G4 - Galaxy S5
 @media screen and (min-width: 360px) and (max-width: 365px) {
     .carousel-inner{
