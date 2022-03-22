@@ -22,23 +22,29 @@ function init() {
     const galeria = document.querySelector(".main_ofertas");
     if (galeria) {
     galeria.innerHTML = "";
-    for (let productoO of ofertas) {
-        const containerO = document.createElement("div");
-        const imageO = document.createElement("img");
-        const btnO = document.createElement("button");
-        containerO.appendChild(imageO);
-        imageO.setAttribute(
+    for (let productoOfertas of ofertas) {
+        const containerOfertas = document.createElement("div");
+        const imagenOfertas = document.createElement("img");
+        const btnOfertas = document.createElement("button");
+        const descripcionOfertas1 = document.createElement("h5");
+        const descripcionOfertas2 = document.createElement("h4");
+        const descripcionOfertas3 = document.createElement("p");
+        containerOfertas.appendChild(imagenOfertas);
+        imagenOfertas.setAttribute(
         "src",
-        `./Imagenes/Ofertas/Oferta${+productoO.id}.jpg`
+        `./Imagenes/Carrito/Carrito${+productoOfertas.id}.jpg`
         );
-        containerO.appendChild(btnO);
-        btnO.addEventListener(`click`, function () {
-            carritoOProductos.push(productoO.articulo);
-            carritoOPrecio.push(productoO.precio);
-            carritoOId.push(productoO.id)
-        localStorage.setItem(`Compra Ofertas`, JSON.stringify(carritoOPrecio));
-        localStorage.setItem(`Productos Ofertas`,JSON.stringify(carritoOProductos));
-        localStorage.setItem(`Id Ofertas`, JSON.stringify(carritoOId));
+        containerOfertas.appendChild(descripcionOfertas1);
+        containerOfertas.appendChild(descripcionOfertas2);
+        containerOfertas.appendChild(descripcionOfertas3);
+        containerOfertas.appendChild(btnOfertas);
+        btnOfertas.addEventListener(`click`, function () {
+            carritoOfertasProductos.push(productoOfertas.articulo);
+            carritoOfertasPrecio.push(productoOfertas.precio);
+            carritoOfertasId.push(productoOfertas.id);
+        localStorage.setItem(`Compra Ofertas`, JSON.stringify(carritoOfertasPrecio));
+        localStorage.setItem(`Productos Ofertas`,JSON.stringify(carritoOfertasProductos));
+        localStorage.setItem(`Id Ofertas`, JSON.stringify(carritoOfertasId));
         Toastify({
             text: "Producto Agregado Al Carrito!",
             style: {
@@ -48,8 +54,15 @@ function init() {
             gravity: top,
         }).showToast();
         });
-        btnO.innerText = "Comprar";
-        galeria.appendChild(containerO);
+        descripcionOfertas1.innerHTML = `articulo ${productoOfertas.articulo}`;
+        descripcionOfertas2.innerHTML = `Precio ${productoOfertas.precio}`;
+        descripcionOfertas3.innerHTML = `Talle Unico`;
+        descripcionOfertas1.setAttribute("class","descripcion1");
+        descripcionOfertas2.setAttribute("class","descripcion2");
+        descripcionOfertas3.setAttribute("class","descripcion3");
+        btnOfertas.innerText = "Comprar";
+        galeria.appendChild(containerOfertas);
+
     }
     }
 }

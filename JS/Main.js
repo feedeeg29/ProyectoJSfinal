@@ -1,17 +1,17 @@
 let valorInicial = 0;
 const confirmar= document.getElementById('confirmar');
 // Arrays Calzado para LocalStorage
-const carritoCPrecio = [];
-const carritoCProductos = [];
-const carritoCId = [];
+const carritoCalzadoPrecio = [];
+const carritoCalzadoProductos = [];
+const carritoCalzadoId = [];
 // Array Ofertas para LocalStorage
-const carritoOId = [];
-const carritoOPrecio = [];
-const carritoOProductos = [];
+const carritoOfertasId = [];
+const carritoOfertasPrecio = [];
+const carritoOfertasProductos = [];
 // Array Verano para LocalStorage
-const carritoVId = [];
-const carritoVPrecio = [];
-const carritoVProductos =[];
+const carritoVeranoId = [];
+const carritoVeranoPrecio = [];
+const carritoVeranoProductos =[];
 // API Envio
 const saldoCliente = 100000;
 const enviosProvincias = document.getElementById('enviosProvincias');

@@ -1,39 +1,30 @@
 // Arrays Carrito Verano
-const carritoFinalVId = JSON.parse(localStorage.getItem(`Id Verano`)) ?? [];
-// console.log(carritoFinalVId.length);
-const carritoFinalVPrecios = JSON.parse(localStorage.getItem(`Compra Verano`)) ?? [];
-// console.log(carritoFinalVPrecios.length);
-const carritoFinalVProductos = JSON.parse(localStorage.getItem(`Productos Verano`)) ?? [];
-// console.log(carritoFinalVProductos.length);
+const carritoFinalVeranoId = JSON.parse(localStorage.getItem(`Id Verano`)) ?? [];
+const carritoFinalVeranoPrecios = JSON.parse(localStorage.getItem(`Compra Verano`)) ?? [];
+const carritoFinalVeranoProductos = JSON.parse(localStorage.getItem(`Productos Verano`)) ?? [];
 
 // Arrays Carrito Calzado
-const carritoFinalCId = JSON.parse(localStorage.getItem(`Id Calzado`)) ?? [];
-// console.log(carritoFinalCId.length);
-const carritoFinalCPrecios = JSON.parse(localStorage.getItem(`Compra Calzado`)) ?? [];
-// console.log(carritoFinalCPrecios.length);
-const carritoFinalCProductos = JSON.parse(localStorage.getItem(`Productos Calzado`)) ?? [];
+const carritoFinalCalzadoId = JSON.parse(localStorage.getItem(`Id Calzado`)) ?? [];
+const carritoFinalCalzadoPrecios = JSON.parse(localStorage.getItem(`Compra Calzado`)) ?? [];
+const carritoFinalCalzadoProductos = JSON.parse(localStorage.getItem(`Productos Calzado`)) ?? [];
 
 // Arrays Carrito Ofertas
-const carritoFinalOId = JSON.parse(localStorage.getItem(`Id Ofertas`)) ?? [];
-// console.log(carritoFinalOId.length);
-const carritoFinalOPrecios = JSON.parse(localStorage.getItem(`Compra Ofertas`)) ?? [];
-// console.log(carritoFinalOPrecios.length);
-const carritoFinalOProductos = JSON.parse(localStorage.getItem(`Productos Ofertas`)) ?? [];
-// console.log(carritoFinalOProductos.length);
+const carritoFinalOfertasId = JSON.parse(localStorage.getItem(`Id Ofertas`)) ?? [];
+const carritoFinalOfertasPrecios = JSON.parse(localStorage.getItem(`Compra Ofertas`)) ?? [];
+const carritoFinalOfertasProductos = JSON.parse(localStorage.getItem(`Productos Ofertas`)) ?? [];
 
 // Arrays Precios Concatenados
-const carritoCOPrecios = carritoFinalCPrecios.concat(carritoFinalOPrecios) ;
-const carritoFinalPrecios = carritoCOPrecios.concat(carritoFinalVPrecios);
+const carritoCOPrecios = carritoFinalCalzadoPrecios.concat(carritoFinalOfertasPrecios) ;
+const carritoFinalPrecios = carritoCOPrecios.concat(carritoFinalVeranoPrecios);
 
 // Arrays Productos Concatenados
-const carritoCOProductos = carritoFinalCProductos.concat(carritoFinalOProductos);
-const carritoFinalProductos = carritoCOProductos.concat(carritoFinalVProductos);
+const carritoCOProductos = carritoFinalCalzadoProductos.concat(carritoFinalOfertasProductos);
+const carritoFinalProductos = carritoCOProductos.concat(carritoFinalVeranoProductos);
 
 // Arrays Id Concatenados
-const carritoCOId = carritoFinalCId.concat(carritoFinalOId);
-const carritoFinalId = carritoCOId.concat(carritoFinalVId);
-// Array prueba
-const arrayPrueba = [];
+const carritoCOId = carritoFinalCalzadoId.concat(carritoFinalOfertasId);
+const carritoFinalId = carritoCOId.concat(carritoFinalVeranoId);
+
 // Carousel 
 if (carritoFinalId.length === 0){
     document.addEventListener("DOMContentLoaded", initCarritoVacio);

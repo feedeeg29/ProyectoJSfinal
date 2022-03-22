@@ -22,24 +22,32 @@ function calzad0() {
     const galeriaC = document.querySelector(".main_calzado");
     if (galeriaC) {
         galeriaC.innerHTML = "";
-        for (let productoC of calzado) {
-        const containerC = document.createElement("div");
-        const imageC = document.createElement("img");
-        const btnC = document.createElement("button");
-        containerC.appendChild(imageC);
-        imageC.setAttribute(
+        for (let productoCalzado of calzado) {
+        const containerCalzado = document.createElement("div");
+        const imageCalzado = document.createElement("img");
+        const btnCalzado = document.createElement("button");
+        const descripcionCalzado1 = document.createElement("h5");
+        const descripcionCalzado2 = document.createElement("h4");
+        const descripcionCalzado3 = document.createElement("p");
+        containerCalzado.appendChild(imageCalzado);
+        containerCalzado.appendChild(descripcionCalzado1);
+        containerCalzado.appendChild(descripcionCalzado2);
+        containerCalzado.appendChild(descripcionCalzado3);
+        containerCalzado.appendChild(btnCalzado);
+
+        imageCalzado.setAttribute(
             "src",
-            `./Imagenes/Calzado/Calzado${+productoC.id}.jpg`
+            `./Imagenes/Carrito/Carrito${+productoCalzado.id}.jpg`
         );
-        imageC.setAttribute("id", `${productoC.id}`);
-        containerC.appendChild(btnC);
-        btnC.addEventListener("click", function () {
-            carritoCPrecio.push(productoC.precio);
-            carritoCProductos.push(productoC.articulo);
-            carritoCId.push(productoC.id);
-            localStorage.setItem(`Compra Calzado`, JSON.stringify(carritoCPrecio));
-            localStorage.setItem(`Productos Calzado`,JSON.stringify(carritoCProductos));
-            localStorage.setItem(`Id Calzado`,JSON.stringify(carritoCId));
+        imageCalzado.setAttribute("id", `${productoCalzado.id}`);
+        containerCalzado.appendChild(btnCalzado);
+        btnCalzado.addEventListener("click", function () {
+            carritoCalzadoPrecio.push(productoCalzado.precio);
+            carritoCalzadoProductos.push(productoCalzado.articulo);
+            carritoCalzadoId.push(productoCalzado.id);
+            localStorage.setItem(`Compra Calzado`, JSON.stringify(carritoCalzadoPrecio));
+            localStorage.setItem(`Productos Calzado`,JSON.stringify(carritoCalzadoProductos));
+            localStorage.setItem(`Id Calzado`,JSON.stringify(carritoCalzadoId));
             Toastify({
             text: "Producto Agregado Al Carrito!",
             style: {
@@ -49,8 +57,11 @@ function calzad0() {
             gravity: top,
             }).showToast();
         });
-        btnC.innerText = "Comprar";
-        galeriaC.appendChild(containerC);
+        btnCalzado.innerText = "Comprar";
+        galeriaC.appendChild(containerCalzado);
+        descripcionCalzado1.innerHTML = `articulo ${productoCalzado.articulo}`;
+        descripcionCalzado2.innerHTML = `Precio ${productoCalzado.precio}`;
+        descripcionCalzado3.innerHTML = `Talle Unico`;
         }
     }
     }

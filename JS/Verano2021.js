@@ -19,27 +19,33 @@ verano.push(new Producto(30, articulo[29], precio[29], seccion[1]));
 // DOM Verano 2021
 document.addEventListener("DOMContentLoaded", veranO);
 function veranO() {
-  const galeriaV = document.querySelector(".main_verano");
-  if (galeriaV) {
-    galeriaV.innerHTML = "";
-    for (let productoV of verano) {
-      const containerV = document.createElement("div");
-      const imageV = document.createElement("img");
-      const btnV = document.createElement("button");
-      containerV.appendChild(imageV);
-      imageV.setAttribute(
+  const galeriaVerano = document.querySelector(".main_verano");
+  if (galeriaVerano) {
+    galeriaVerano.innerHTML = "";
+    for (let productoVerano of verano) {
+      const containerVerano = document.createElement("div");
+      const imageVerano = document.createElement("img");
+      const btnVerano = document.createElement("button");
+      containerVerano.appendChild(imageVerano);
+      imageVerano.setAttribute(
         "src",
-        `./Imagenes/Verano2021/Verano${+productoV.id}.jpg`
+        `./Imagenes/Carrito/Carrito${+productoVerano.id}.jpg`
       );
-      imageV.setAttribute("id", `${productoV.id}`);
-      containerV.appendChild(btnV);
-      btnV.addEventListener("click", function () {
-        carritoVId.push(productoV.id);
-        carritoVPrecio.push(productoV.precio);
-        carritoVProductos.push(productoV.articulo);
-        localStorage.setItem(`Compra Verano`, JSON.stringify(carritoVPrecio));
-        localStorage.setItem(`Productos Verano`,JSON.stringify(carritoVProductos));
-        localStorage.setItem(`Id Verano`, JSON.stringify(carritoVId));
+      const descripcionVerano1 = document.createElement("h5");
+      const descripcionVerano2 = document.createElement("h4");
+      const descripcionVerano3 = document.createElement("p");
+      imageVerano.setAttribute("id", `${productoVerano.id}`);
+      containerVerano.appendChild(btnVerano);
+      containerVerano.appendChild(descripcionVerano1);
+      containerVerano.appendChild(descripcionVerano2);
+      containerVerano.appendChild(descripcionVerano3);
+      btnVerano.addEventListener("click", function () {
+        carritoVeranoId.push(productoVerano.id);
+        carritoVeranoPrecio.push(productoVerano.precio);
+        carritoVeranoProductos.push(productoVerano.articulo);
+        localStorage.setItem(`Compra Verano`, JSON.stringify(carritoVeranoPrecio));
+        localStorage.setItem(`Productos Verano`,JSON.stringify(carritoVeranoProductos));
+        localStorage.setItem(`Id Verano`, JSON.stringify(carritoVeranoId));
         Toastify({
           text: "Producto Agregado Al Carrito!",
           style: {
@@ -49,8 +55,14 @@ function veranO() {
           gravity: top,
         }).showToast();
       });
-      btnV.innerText = "Comprar";
-      galeriaV.appendChild(containerV);
+      btnVerano.innerText = "Comprar";
+      galeriaVerano.appendChild(containerVerano);
+      descripcionVerano1.innerHTML = `articulo ${productoVerano.articulo}`;
+      descripcionVerano2.innerHTML = `Precio ${productoVerano.precio}`;
+      descripcionVerano3.innerHTML = `Talle Unico`;
+      descripcionVerano1.setAttribute("class","descripcion1");
+      descripcionVerano2.setAttribute("class","descripcion2");
+      descripcionVerano3.setAttribute("class","descripcion3");
     }
   }
 }
